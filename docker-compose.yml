@@ -1,0 +1,16 @@
+master:
+  image: snufkin/spark-master
+  hostname: spark-master
+  ports:
+    - "8080"
+    - "4040"
+    - "7077:7077"
+  expose:
+    - "7077"
+worker:
+  image: snufkin/spark-worker
+  ports:
+    - "8081"
+  links:
+    - master:spark-master
+
