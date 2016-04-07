@@ -1,6 +1,6 @@
 
 
-docker-compose scale worker=3
+docker-compose scale spark-slave=3
 
 
-./bin/spark-shell --master spark://spark-master:7077
+spark-shell --master spark://docker-machine ip $(docker-machine active):7077

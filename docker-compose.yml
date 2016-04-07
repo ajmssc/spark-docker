@@ -1,16 +1,22 @@
-master:
-  image: snufkin/spark-master
-  hostname: spark-master
-  ports:
-    - "8080"
-    - "4040"
-    - "7077:7077"
-  expose:
-    - "7077"
-worker:
-  image: snufkin/spark-worker
-  ports:
-    - "8081"
-  links:
-    - master:spark-master
+
+version: '2'
+
+services:
+  spark-master:
+    build: spark-base
+    command: /start.sh master
+    ports:
+      - 8080:8080
+      - 4040:4040
+      - 7077:7077
+    expose:
+      - 7077
+
+  spark-slave:
+    build: spark-base
+    command: /start.sh slave
+    ports:
+      - 8081
+    links:
+      - spark-master:spark-master
 
