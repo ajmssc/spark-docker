@@ -18,6 +18,15 @@
         </description>
     </property>
     <property>
+        <name>fs.s3.impl</name>
+        <value>org.apache.hadoop.fs.s3.S3FileSystem</value>
+    </property>
+    <property>
+        <name>fs.s3n.impl</name>
+        <value>org.apache.hadoop.fs.s3native.NativeS3FileSystem</value>
+        <description>The FileSystem for s3n: (Native S3) uris.</description>
+    </property>
+    <property>
         <name>fs.gs.impl</name>
         <value>com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem</value>
         <description>The FileSystem for gs: (GCS) uris.</description>
